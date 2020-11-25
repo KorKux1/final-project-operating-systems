@@ -1,8 +1,17 @@
 #! /bin/bash
+<< 'MULTI-COMMENT'
+Integrantes: David Obando, Cristian Castillo, John Camilo Sepulveda, Sebastián Correa
+
+El proyecto consiste en un script bash que facilite las labores del administrador de un data center, como consultar procesos que consumen más memoria, ver los filesystems más llenos,
+conocer los archivos más grande...Entre otros servicios.
+
+Ejecución: 
+bash main.sh
+MULTI-COMMENT
 option=0
 
 ##
-# Print the options menu
+# Imprimir las opciones del menu
 ## 
 print_menu() {
     echo "----------------------------------------------------------------------------------------------------------------------"
@@ -17,12 +26,12 @@ print_menu() {
 
 get_process_consume_more_memory() {
     clear
-    ps aux --sort=-%mem | head -n 5
+    ps aux --sort=-%mem | awk '{print $1, $2, $4}' | head -n 6 | column -t
 }
 
 get_filesystems_more_60_memory() {
     clear
-    df -P | awk '0+$5 >= 60 {printf("%s %8s %8s %8s \n", $1, $4, $5, $6)}'
+    df -P | awk '0+$5 >= 60 {printf("%s %8s %8s %8s \n", $1, $4, $5, $6)}' | column -t
 }
 
 get_larger_files(){
