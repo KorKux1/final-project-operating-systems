@@ -31,8 +31,8 @@ get_larger_files(){
     if [ -d $directory ]
         then
             cd $directory
-            read -p "Digite el tipo de archivo: " type_var
-            find "$(pwd)" -type "$type_var"| sort -r | head -n 5
+            read -p "Digite el tipo de archivo: (ej- .txt .sh .docx) " type_var
+            find "$(pwd)" -name "*$type_var"| sort -r | head -n 5
 
         else
             echo "El directorio $directory no existe"
