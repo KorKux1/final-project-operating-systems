@@ -1,4 +1,4 @@
-# Sleepy Monitor
+# Final Project Operating Systems
 Manager of some basic functions for Linux
 
 <p align="center">
