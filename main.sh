@@ -47,7 +47,7 @@ get_process_consume_more_memory() {
 #column -t: Comando usado para mostrar la salida en forma de tabla
 get_filesystems_more_60_memory() {
     clear
-    df -h | awk '0+$5 >= 10 {printf("%s %8s %8s %8s \n", $1, $2, $4, $6)}' | column -t
+    df -h | awk '0+$5 >= 60 {printf("%s %8s %8s %8s \n", $1, $2, $4, $6)}' | column -t
 }
 
 #Sinopsis:
